@@ -1,0 +1,43 @@
+<dom-module id="previewer-controller">
+<link rel="import" type="css" href="../app.css">
+
+<style>
+    .filler {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+</style>
+  
+<template>
+  <fieldset>
+    <legend><b>Preview</b> (<span>{{previewTitle}}</span>)</legend>
+    <div id="inputMainArea">
+      <label for="pageSize">Per Page</label>
+      <select selectedValue="{{pageSize}}" id="pageSize" on-change="{{pageSizeSelectionChanged}}">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6" selected="true">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="50">50</option>
+      </select>
+      <span class="filler"></span>
+      <input type="button" value="&lt;" title="Previous page" on-click="viewPreviousPage">
+      <input type="button" value="&gt;" title="Next page" on-click="viewNextPage">
+      <span class="filler"></span>
+      <input type="button" value="Book It" title="Bookmark the verse" on-click="bookmarkVerse">
+      <input type="button" value="Project" title="Project the verse" on-click="projectVerse" class="emphasizedBtn">
+    </div>
+  </fieldset>
+</template>
+</dom-module>
+
+<script type="text/javascript" src="previewer-controller.js"></script>

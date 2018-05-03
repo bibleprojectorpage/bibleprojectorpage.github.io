@@ -1,0 +1,30 @@
+<dom-module id="verse-previewer">
+
+<style>
+    fieldset {
+        margin-top: 5px;
+    }
+</style>
+
+<template>
+  <fieldset>
+    <template is="dom-repeat" items="{{chapInfo4DispList}}" as="chapInfo4Disp">
+      <ul>
+      <template is="dom-repeat" items="{{chapInfo4Disp.verseInfo4DispList}}" as="verseInfo4Disp">
+        <li><sup style="font-size:70%;">{{verseInfo4Disp.verseNum}}</sup> 
+        <template is="dom-if" if="{{verseInfo4Disp.isFirst}}">
+          <span>{{verseInfo4Disp.verseText}}</span>
+        </template>
+        <template is="dom-if" if="{{!verseInfo4Disp.isFirst}}">
+          <a id="{{verseInfo4Disp.verseSub}}" href="{{verseInfo4Disp.verseSub}}"
+            on-click="verseClicked">{{verseInfo4Disp.verseText}}</a>
+        </template>
+        </li>
+      </template>
+      </ul></p>
+    </template>
+  </fieldset>
+</template>
+</dom-module>
+
+<script type="text/javascript" src="verse-previewer.js"></script>

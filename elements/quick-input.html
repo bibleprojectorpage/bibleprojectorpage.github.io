@@ -1,0 +1,24 @@
+<dom-module id="quick-input">
+
+<style>
+    #quickInputField {
+      width: 5.5em;
+      margin-left: 0.5em;
+      margin-bottom: 0.2em;
+    }
+</style>
+
+<template>
+  <fieldset>
+    <legend><b>Input</b></legend>
+    <div id="inputMainArea">
+      <input type="button" disabled$="{{inputError}}" value="Book It" title="Bookmark the verse" on-click="bookmarkVerse">
+      <input type="button" disabled$="{{inputError}}" value="View" title="Preview the verse"  on-click="updateQuickInput">
+      <input  id="quickInputField" value="{{sQuickInput}}" on-keyup="onQuickInputKeyUp" on-change="updateQuickInput">
+      <label for="quickInputField">&nbsp;<span>{{volChapVerseMax}}</span></label>
+    </div>
+  </fieldset>
+</template>
+</dom-module>
+
+<script type="text/javascript" src="quick-input.js"></script>

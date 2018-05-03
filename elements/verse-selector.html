@@ -1,0 +1,68 @@
+<dom-module id="verse-selector">
+
+<style>
+    .tableDiv {
+      display: table;
+    }
+    .tableRowDiv {
+      display: table-row;
+    }
+    .tableCellDiv {
+      display: table-cell;
+    }
+    
+    .anchorFiller {
+      display: table-cell;
+      cursor: default;
+      width: 0.07em;
+    }
+    .anchorCell {
+      display: table-cell;
+      cursor: default;
+      border: 1px;
+      border-color: white;
+      border-style: solid;
+      padding: 0.1em;
+      padding-left: 0.4em;
+    }
+    .anchorCell:hover {
+      border: 1px;
+      border-color: black;
+      border-style: solid;
+    }
+    .volTextRightAlign {
+      text-align: right;
+    }
+    
+    .selectedCell {
+      text-shadow: 0 0 1px #000,
+             0 0 10px rgba(199, 107, 107, 0.8);
+      background-color: #F0F0F0;
+      font: bolder;
+      border: 1px;
+      border-color: black;
+      border-style: solid;
+    }
+</style>
+  
+<template>
+  <fieldset>
+    <legend><b>Volumes</b></legend>
+    <div class="tableDiv" id="volAnchorLines">
+      <template is="dom-repeat" items="{{volAnchorLines}}" as="anchorLine">
+        <div class="tableRowDiv">
+          <template is="dom-repeat" items="{{anchorLine.anchors}}" as="anchor">
+            <div class="anchorFiller"></div>
+            <div class="anchorCell" id="{{anchor.id}}" on-click="volAnchorClicked">
+              <template is="dom-if" if="{{anchor.needPadding}}">&nbsp;</template> <span>{{anchor.text}}</span>
+            </div>
+          </template>
+          <div class="anchorFiller"></div>
+        </div>
+      </template>
+    </div>
+  </fieldset>
+</template>
+</dom-module>
+
+<script type="text/javascript" src="verse-selector.js"></script>
